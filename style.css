@@ -1,0 +1,82 @@
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  height: 100vh;
+  background-color: #222222;
+}
+
+#game {
+  height: 100vh;
+  margin: 0 auto;
+  width: 50%;
+  display: grid;
+  justify-items: center;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  grid-template-columns: 1fr 1fr;
+}
+
+.boton {
+  height: 250px;
+  width: 250px;
+  margin: 10px 10px;
+  border-radius: 20px;
+  border: none;
+  cursor: pointer;
+  box-shadow: 4px 4px 8px 2px rgba(0, 0, 0, 50%);
+  transition: 0.7s all;
+}
+
+button:active {
+  box-shadow: none;
+}
+
+.azul {
+  background-image: radial-gradient(
+    hsl(240, 100%, 65%),
+    hsl(240, 100%, 40%) 70%
+  );
+}
+
+.rojo {
+  background-image: radial-gradient(hsl(0, 100%, 65%), hsl(0, 100%, 40%) 70%);
+}
+
+.verde {
+  background-image: radial-gradient(
+    hsl(105, 100%, 65%),
+    hsl(105, 100%, 40%) 70%
+  );
+}
+
+.amarillo {
+  background-image: radial-gradient(hsl(60, 100%, 65%), hsl(60, 100%, 40%) 70%);
+}
+
+.azul:active,
+.azul.activo {
+  background-image: radial-gradient(
+    hsl(240, 100%, 40%),
+    hsl(240, 100%, 65%) 70%
+  );
+}
+
+.rojo:active,
+.rojo.activo {
+  background-image: radial-gradient(hsl(0, 100%, 40%), hsl(0, 100%, 65%) 70%);
+}
+
+.verde:active,
+.verde.activo {
+  background-image: radial-gradient(
+    hsl(105, 100%, 40%),
+    hsl(105, 100%, 65%) 70%
+  );
+}
+
+.amarillo:active,
+.amarillo.activo {
+  background-image: radial-gradient(hsl(60, 100%, 40%), hsl(60, 100%, 65%) 70%);
+}
