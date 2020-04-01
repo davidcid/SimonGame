@@ -3,15 +3,60 @@ body {
   padding: 0;
   box-sizing: border-box;
   height: 100vh;
-  background-color: #222222;
+  /* background-color: #222222; */
+  background: url("https://wallpaperaccess.com/full/1170519.png");
+  background-size: cover;
+  font-family: "Sen", sans-serif;
+  font-size: 18px;
+  padding: 1rem;
+}
+
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+h1 {
+  font-size: 6rem;
+  text-align: center;
+  color: rgb(20, 223, 212);
+  text-shadow: 5px 5px 0px rgba(241, 40, 241, 1);
+  margin-bottom: 8rem;
+}
+
+h2 {
+  color: rgba(241, 40, 241, 1);
+  font-size: 4rem;
+  text-align: center;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  position: absolute;
+  top: 0.8rem;
+}
+
+.fase-wrapper {
+  margin: 0 auto;
+  height: 100px;
+  width: 100px;
+  background-color: white;
+  border-radius: 50%;
+  box-shadow: 4px 4px 8px 2px rgba(0, 0, 0, 50%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.game-wrapper {
+  position: relative;
 }
 
 #game {
-  height: 100vh;
+  height: 600px;
   margin: 0 auto;
-  width: 50%;
+  width: 600px;
   display: grid;
-  justify-items: center;
   justify-content: center;
   align-items: center;
   align-content: center;
@@ -22,37 +67,38 @@ body {
   height: 250px;
   width: 250px;
   margin: 10px 10px;
-  border-radius: 20px;
-  border: none;
+  border-radius: 40px;
+  border: 7px solid white;
   cursor: pointer;
   box-shadow: 4px 4px 8px 2px rgba(0, 0, 0, 50%);
-  transition: 0.7s all;
+  transition: 0.1s all;
 }
 
-button:active {
+.boton:active {
   box-shadow: none;
+  transform: translateY(4px);
 }
 
 .azul {
   background-image: radial-gradient(
-    hsl(240, 100%, 65%),
-    hsl(240, 100%, 40%) 70%
+    hsl(240, 100%, 80%),
+    hsl(240, 100%, 30%) 70%
   );
 }
 
 .rojo {
-  background-image: radial-gradient(hsl(0, 100%, 65%), hsl(0, 100%, 40%) 70%);
+  background-image: radial-gradient(hsl(0, 100%, 80%), hsl(0, 100%, 30%) 70%);
 }
 
 .verde {
   background-image: radial-gradient(
-    hsl(105, 100%, 65%),
-    hsl(105, 100%, 40%) 70%
+    hsl(105, 100%, 80%),
+    hsl(105, 100%, 30%) 70%
   );
 }
 
 .amarillo {
-  background-image: radial-gradient(hsl(60, 100%, 65%), hsl(60, 100%, 40%) 70%);
+  background-image: radial-gradient(hsl(60, 100%, 80%), hsl(60, 100%, 30%) 70%);
 }
 
 .azul:active,
@@ -79,4 +125,11 @@ button:active {
 .amarillo:active,
 .amarillo.activo {
   background-image: radial-gradient(hsl(60, 100%, 40%), hsl(60, 100%, 65%) 70%);
+}
+
+.messages {
+  color: rgba(241, 40, 241, 1);
+  font-size: 2rem;
+  margin: 2rem;
+  text-align: center;
 }

@@ -3,16 +3,51 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="simon.svg" type="image/x-icon" />
     <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Sen:wght@400;800&display=swap"
+      rel="stylesheet"
+    />
     <title>Simon Game</title>
   </head>
-  <body>
-    <div id="game">
-      <div class="boton azul"></div>
-      <div class="boton rojo"></div>
-      <div class="boton verde"></div>
-      <div class="boton amarillo"></div>
+  <body onload="inicializar()">
+    <div class="container">
+      <h1>Simon Game</h1>
+      <div class="game-wrapper">
+        <div class="fase-wrapper">
+          <h2 class="fase">1</h2>
+        </div>
+        <div id="game">
+          <div class="boton azul"></div>
+          <div class="boton rojo"></div>
+          <div class="boton verde"></div>
+          <div class="boton amarillo"></div>
+        </div>
+      </div>
+      <div class="messages"></div>
     </div>
+
+    <audio
+      id="sonido-azul"
+      src="https://s3.amazonaws.com/freecodecamp/simonSound1.mp3"
+    ></audio>
+    <audio
+      id="sonido-rojo"
+      src="https://s3.amazonaws.com/freecodecamp/simonSound2.mp3"
+    ></audio>
+    <audio
+      id="sonido-verde"
+      src="https://s3.amazonaws.com/freecodecamp/simonSound3.mp3"
+    ></audio>
+    <audio
+      id="sonido-amarillo"
+      src="https://s3.amazonaws.com/freecodecamp/simonSound4.mp3"
+    ></audio>
+    <audio
+      id="sonido-error"
+      src="https://s3.amazonaws.com/adam-recvlohe-sounds/error.wav"
+    ></audio>
 
     <script src="juego.js"></script>
   </body>

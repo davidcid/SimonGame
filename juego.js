@@ -3,7 +3,17 @@ const rojo = document.querySelector(".rojo");
 const verde = document.querySelector(".verde");
 const amarillo = document.querySelector(".amarillo");
 
+const sonidoAzul = document.querySelector("#sonido-azul");
+const sonidoRojo = document.querySelector("#sonido-rojo");
+const sonidoVerde = document.querySelector("#sonido-verde");
+const sonidoAmarillo = document.querySelector("#sonido-amarillo");
+const sonidoError = document.querySelector("#sonido-error");
+
 const botones = document.querySelectorAll(".boton");
+
+const textoFase = document.querySelector(".fase");
+
+const mensaje = document.querySelector(".messages");
 
 let secuencia = [];
 
@@ -11,14 +21,19 @@ let fase = 0;
 
 let paso = 0;
 
-let timeout = 2000;
+let timeout = 1600;
 let tiempoIluminado = 400;
 
 let finJuego = 6;
 
 botones.forEach(boton =>
   boton.addEventListener("click", () => {
-    console.log(boton.classList[1]);
+    if (secuencia[paso] === boton.classList[1]) {
+      botonCorrecto();
+      iniciarSonido(boton);
+    } else {
+      botonIncorrecto();
+    }
   })
 );
 
@@ -27,49 +42,22 @@ botonCorrecto = () => {
   if (fase === paso - 1) {
     fase++;
     if (fase === finJuego) {
+      mensaje.innerHTML = "Has ganado!";
       console.log("has ganado!");
     }
     mostrarSecuencia();
-    console.log(`fase: ${fase}`);
+    textoFase.innerHTML = `${fase + 1}`;
   }
 };
 
 botonIncorrecto = () => {
-  console.log("error! prueba otra vez");
+  setTimeout(() => {
+    mensaje.innerHTML = "";
+  }, 3000);
+  mensaje.innerHTML = "Botón equivocado! Prueba otra vez!";
+  sonidoError.play();
   mostrarSecuencia();
 };
-
-// azul.addEventListener("click", () => {
-//   if (secuencia[paso] === 0) {
-//     botonCorrecto();
-//   } else {
-//     botonIncorrecto();
-//   }
-// });
-
-// rojo.addEventListener("click", () => {
-//   if (secuencia[paso] === 1) {
-//     botonCorrecto();
-//   } else {
-//     botonIncorrecto();
-//   }
-// });
-
-// verde.addEventListener("click", () => {
-//   if (secuencia[paso] === 2) {
-//     botonCorrecto();
-//   } else {
-//     botonIncorrecto();
-//   }
-// });
-
-// amarillo.addEventListener("click", () => {
-//   if (secuencia[paso] === 3) {
-//     botonCorrecto();
-//   } else {
-//     botonIncorrecto();
-//   }
-// });
 
 const crearSecuencia = () => {
   for (let i = 0; i < 20; i++) {
@@ -77,19 +65,24 @@ const crearSecuencia = () => {
     if (color === 0) {
       secuencia[i] = "azul";
     }
-    if (color === 0) {
+    if (color === 1) {
       secuencia[i] = "rojo";
     }
-    if (color === 0) {
+    if (color === 2) {
       secuencia[i] = "verde";
     }
-    if (color === 0) {
+    if (color === 3) {
       secuencia[i] = "amarillo";
     }
   }
 };
 
-crearSecuencia();
+inicializar = () => {
+  fase = 0;
+  paso = 0;
+  crearSecuencia();
+  mostrarSecuencia();
+};
 
 mostrarSecuencia = () => {
   paso = 0;
@@ -118,11 +111,25 @@ mostrarSecuencia = () => {
   }, timeout / 2);
 };
 
+iniciarSonido = color => {
+  if (color.classList[1] === "azul") {
+    sonidoAzul.play();
+  }
+  if (color.classList[1] === "rojo") {
+    sonidoRojo.play();
+  }
+  if (color.classList[1] === "verde") {
+    sonidoVerde.play();
+  }
+  if (color.classList[1] === "amarillo") {
+    sonidoAmarillo.play();
+  }
+};
+
 const activarClase = color => {
   color.classList.add("activo");
+  iniciarSonido(color);
   setTimeout(function() {
     color.classList.remove("activo");
   }, tiempoIluminado);
 };
-
-mostrarSecuencia();
